@@ -5,3 +5,8 @@ class Node {
   }
 }
 
+class LinkedList {
+  constructor() {
+    this.headNode = null;
+  }
+}
