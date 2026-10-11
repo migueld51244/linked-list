@@ -39,4 +39,14 @@ class LinkedList {
     this.headNode = newNode;
     this.headNode.nextNode = nextNode;
   }
+
+  size() {
+    let length = 0;
+    let currentNode = this.headNode;
+    while (currentNode) {
+      length++;
+      currentNode = currentNode.nextNode;
+    }
+    return length;
+  }
 }
