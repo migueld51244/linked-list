@@ -109,10 +109,21 @@ class LinkedList {
     }
     return -1;
   }
+
+  toString() {
+    let currentNode = this.headNode;
+    let result = "";
+    if (!currentNode) return result;
+    while (currentNode) {
+      result += `( ${currentNode.value} ) -> `;
+      currentNode = currentNode.nextNode;
+    }
+    return result + "null";
+  }
 }
 
 const list = new LinkedList();
-list.prepend(9);
-list.prepend(1);
-list.append(9)
-console.log(list.findIndex(9));
+list.append(1)
+list.append(2)
+list.append(3)
+console.log(list.toString());
