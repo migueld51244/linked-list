@@ -95,10 +95,24 @@ class LinkedList {
     }
     return false;
   }
+
+  findIndex(value) {
+    let index = 0;
+    let currentNode = this.headNode;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return index;
+      }
+      currentNode = currentNode.nextNode;
+      index++;
+    }
+    return -1;
+  }
 }
 
 const list = new LinkedList();
+list.prepend(9);
+list.prepend(1);
 list.append(9)
-list.prepend(1)
-list.pop(1)
-console.log(list.contains(1));
+console.log(list.findIndex(9));
