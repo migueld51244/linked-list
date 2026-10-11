@@ -173,3 +173,5 @@ class LinkedList {
     currentNode.nextNode = currentNode.nextNode.nextNode;
   }
 }
+
+export { LinkedList };
