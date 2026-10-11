@@ -49,4 +49,13 @@ class LinkedList {
     }
     return length;
   }
+
+  head() {
+    return this.headNode ? this.headNode.value : undefined;
+  }
 }
+
+const list = new LinkedList();
+list.append(10);
+list.prepend(1);
+console.log(list.head());
