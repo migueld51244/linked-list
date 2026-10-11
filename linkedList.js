@@ -62,7 +62,21 @@ class LinkedList {
     }
     return currentNode.value;
   }
+
+  at(index) {
+    let currentNode = this.headNode;
+    if (!currentNode || index < 0) return undefined;
+
+    let i = 0;
+    while (currentNode) {
+      if (i >= index) {
+        return currentNode.value;
+      }
+      currentNode = currentNode.nextNode;
+      i++;
+    }
+    return undefined;
+  }
 }
 
 const list = new LinkedList();
-console.log(list.tail());
