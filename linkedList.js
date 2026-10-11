@@ -77,6 +77,18 @@ class LinkedList {
     }
     return undefined;
   }
+
+  pop() {
+    let currentNode = this.headNode;
+    if (!currentNode) return undefined;
+    const nextNode = currentNode.nextNode;
+    this.headNode = nextNode;
+    return currentNode.value;
+  }
 }
 
 const list = new LinkedList();
+list.append(1);
+list.append(2);
+console.log(list.pop());
+console.log(list);
