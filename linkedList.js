@@ -53,9 +53,16 @@ class LinkedList {
   head() {
     return this.headNode ? this.headNode.value : undefined;
   }
+
+  tail() {
+    let currentNode = this.headNode;
+    if (!currentNode) return undefined;
+    while (currentNode.nextNode) {
+      currentNode = currentNode.nextNode;
+    }
+    return currentNode.value;
+  }
 }
 
 const list = new LinkedList();
-list.append(10);
-list.prepend(1);
-console.log(list.head());
+console.log(list.tail());
