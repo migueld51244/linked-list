@@ -154,11 +154,22 @@ class LinkedList {
     lastInserted.nextNode = currentNode.nextNode;
     currentNode.nextNode = firstInserted;
   }
-}
 
-const list = new LinkedList();
-list.append(1);
-list.append(2);
-list.append(3);
-list.insertAt(1, 1.5, 1.6, 1.7);
-console.log(list.toString());
+  removeAt(index) {
+    if (index < 0) throw new RangeError("The index must be at least 0");
+    if (index > this.size() - 1)
+      throw new RangeError("The index exceeds the list size");
+
+    if (index === 0) {
+      this.headNode = this.headNode.nextNode;
+      return;
+    }
+
+    let currentNode = this.headNode;
+    for (let i = 0; i < index - 1; i++) {
+      currentNode = currentNode.nextNode;
+    }
+
+    currentNode.nextNode = currentNode.nextNode.nextNode;
+  }
+}
