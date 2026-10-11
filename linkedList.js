@@ -85,10 +85,20 @@ class LinkedList {
     this.headNode = nextNode;
     return currentNode.value;
   }
+
+  contains(value) {
+    let currentNode = this.headNode;
+
+    while (currentNode) {
+      if (currentNode.value === value) return true;
+      currentNode = currentNode.nextNode;
+    }
+    return false;
+  }
 }
 
 const list = new LinkedList();
-list.append(1);
-list.append(2);
-console.log(list.pop());
-console.log(list);
+list.append(9)
+list.prepend(1)
+list.pop(1)
+console.log(list.contains(1));
