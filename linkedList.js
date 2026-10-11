@@ -120,10 +120,45 @@ class LinkedList {
     }
     return result + "null";
   }
+
+  insertAt(index, ...values) {
+    if (index < 0) throw new RangeError("The index must be at least 0");
+    if (index > this.size())
+      throw new RangeError("The index exceeds the list size");
+    if (values.length === 0) return;
+
+    let firstInserted = null;
+    let lastInserted = null;
+    for (const value of values) {
+      const newNode = new Node();
+      newNode.value = value;
+      if (!firstInserted) {
+        firstInserted = newNode;
+      } else {
+        lastInserted.nextNode = newNode;
+      }
+      lastInserted = newNode;
+    }
+
+    if (index === 0) {
+      lastInserted.nextNode = this.headNode;
+      this.headNode = firstInserted;
+      return;
+    }
+
+    let currentNode = this.headNode;
+    for (let i = 0; i < index - 1; i++) {
+      currentNode = currentNode.nextNode;
+    }
+
+    lastInserted.nextNode = currentNode.nextNode;
+    currentNode.nextNode = firstInserted;
+  }
 }
 
 const list = new LinkedList();
-list.append(1)
-list.append(2)
-list.append(3)
+list.append(1);
+list.append(2);
+list.append(3);
+list.insertAt(1, 1.5, 1.6, 1.7);
 console.log(list.toString());
