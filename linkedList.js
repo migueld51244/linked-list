@@ -9,6 +9,7 @@ class LinkedList {
   constructor() {
     this.headNode = null;
   }
+
   append(value) {
     const newNode = new Node();
     newNode.value = value;
@@ -23,5 +24,19 @@ class LinkedList {
       currentNode = currentNode.nextNode;
     }
     currentNode.nextNode = newNode;
+  }
+
+  prepend(value) {
+    const newNode = new Node();
+    newNode.value = value;
+
+    if (!this.headNode) {
+      this.headNode = newNode;
+      return;
+    }
+
+    const nextNode = this.headNode;
+    this.headNode = newNode;
+    this.headNode.nextNode = nextNode;
   }
 }
